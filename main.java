@@ -2,16 +2,10 @@ package regu4;
 
 import java.util.Scanner;
 
-
-
-
 public class RegU4 {
 
-    
-
-        public static void main(String[] args) {
-
-           boolean continuar = true;
+    public static void main(String[] args) {
+        boolean continuar = true;
         int opcion, elemento;
         int[] matriz = LeerTxt.LeerTxt();
 
