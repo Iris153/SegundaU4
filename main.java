@@ -1,9 +1,9 @@
 package regu4;
 
-
-import java.io.File;
-import java.io.FileReader;
 import java.util.Scanner;
+
+
+
 
 public class RegU4 {
 
@@ -11,10 +11,9 @@ public class RegU4 {
 
         public static void main(String[] args) {
 
-           boolean continuar = true, continuar2 = true;
-        int opcion, numero = 1, elemento;
-
-        Object inserta;
+           boolean continuar = true;
+        int opcion, elemento;
+        int[] matriz = LeerTxt.LeerTxt();
 
         Procesos obj = new Procesos();
         Scanner leer = new Scanner(System.in);
@@ -34,83 +33,14 @@ public class RegU4 {
 
             switch (opcion) {
                 case 1:
-                        try {
-                    Scanner input = new Scanner(new File("C:\\Users\\irisv\\Desktop\\Regula4.txt"));
-                    while (input.hasNextLine()) {
-                        String line = input.nextLine();
-                        System.out.println(line);
+                    System.out.println("Numeros insertados");
+
+                    for (int i = 0; i < matriz.length; i++) {
+                        Nodo nodoActual;
+                        nodoActual = new Nodo(matriz[i]);
+                        obj.Insertar(nodoActual);
                     }
-                    input.close();
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-
-                System.out.println("Numeros insertados");
-
-                while (continuar2) {
-                    Nodo nodoActual;
-
-                    switch (numero) {
-                        case 1:
-                            nodoActual = new Nodo(6);
-                            obj.Insertar(nodoActual);
-                            break;
-
-                        case 2:
-                            nodoActual = new Nodo(3);
-                            obj.Insertar(nodoActual);
-                            break;
-
-                        case 3:
-                            nodoActual = new Nodo(2);
-                            obj.Insertar(nodoActual);
-                            break;
-
-                        case 4:
-                            nodoActual = new Nodo(4);
-                            obj.Insertar(nodoActual);
-                            break;
-
-                        case 5:
-                            nodoActual = new Nodo(1);
-                            obj.Insertar(nodoActual);
-                            break;
-
-                        case 6:
-                            nodoActual = new Nodo(2);
-                            obj.Insertar(nodoActual);
-                            break;
-
-                        case 7:
-                            nodoActual = new Nodo(7);
-                            obj.Insertar(nodoActual);
-                            break;
-
-                        case 8:
-                            nodoActual = new Nodo(10);
-                            obj.Insertar(nodoActual);
-                            break;
-
-                        case 9:
-                            nodoActual = new Nodo(8);
-                            obj.Insertar(nodoActual);
-                            break;
-
-                        case 10:
-                            nodoActual = new Nodo(9);
-                            obj.Insertar(nodoActual);
-                            break;
-
-                        default:
-                            break;
-                    }
-                    if (numero == 10) {
-                        continuar2 = false;
-                    }
-                    numero++;
-                }
-
-                break;
+                    break;
 
                 case 2:
                     obj.preorden();
@@ -146,6 +76,5 @@ public class RegU4 {
                     break;
             }
         }
-
     }
 }
